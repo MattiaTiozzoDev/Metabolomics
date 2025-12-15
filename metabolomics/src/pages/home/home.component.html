@@ -1,0 +1,47 @@
+
+
+<div class="container">
+<div
+  class="file-drop-zone"
+  (drop)="onFileDropped($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  [class.drag-over]="isDragOver"
+>
+  @if(!file){
+      <p >Trascina qui il file XLSM oppure clicca per selezionarlo</p>
+  } 
+  @else {
+      <p >File selezionato: {{ inputFileName }}</p>
+  }
+
+  <input
+    type="file"
+    accept=".xlsm"
+    hidden
+    (change)="onFileSelected($event)"
+    #fileInput
+  />
+  <button (click)="fileInput.click()">Seleziona file</button>
+</div>
+
+
+
+  @if(!!file){
+    <button (click)="download()">
+      Scarica file PDF
+    </button>
+  }
+</div>
+
+
+<div id="pdf-section" style="display:none;">
+  @if(!!file){
+        @for( row of file; track row){
+          @if(row['__EMPTY_2']){
+              <span>{{row['__EMPTY_2']}}: </span><strong>{{row['__EMPTY_18']}} </strong>
+              <hr>
+          }       
+    }
+  }
+</div>
