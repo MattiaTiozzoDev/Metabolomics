@@ -1,39 +1,178 @@
 
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
+
 @use '@angular/material' as mat;
+@use "../src/styles/colors.scss" as col;
+@import "../src/styles/flex.scss";
+@import "../src/styles/spacing.scss";
 
-html {
-  @include mat.theme((
-    color: (
-      primary: mat.$magenta-palette,
-      tertiary: mat.$violet-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  // Reset the user agent margin.
+html, body { 
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+  height: 100%;
+  width: 100%;
+}
+
+.blue-bg{
+  background-color: col.$primary;
+}
+
+.blue{
+  color: col.$primary;
+}
+
+.dark-blue{
+  color: #024F84;
+}
+
+.green-bg {
+  background-color: col.$secondary;
+}
+
+.green{
+  color: col.$secondary;
+}
+
+.white {
+  color: white;
+}
+
+.light-blue {
+  color: #29AABC;
+}
+
+.white-transparent{
+    color: #ffffffbd;
+}
+
+.white-gradient{
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%);
+}
+
+.border-white-gradient {
+  position: relative;
+}
+
+.border-white-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.16)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.display-none{
+  display: none;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+h1{
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h2{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h4{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+h5{
+  font-size: 7px;
+  font-weight: 500;
+}
+
+h6{
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.small-text{
+  font-size: 7px;
+  font-weight: 400;
+}
+
+.page-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.page-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/img/pdf_page_background.svg");
+  background-repeat: no-repeat;
+  background-position: top 70% right 0; /* es: top left, 50% 20% */
+  background-size: 430px 576px; /* oppure cover */
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.page-content{
+  height: 692px;
+  width: 100%;
+  padding: 20px 40px;
+}

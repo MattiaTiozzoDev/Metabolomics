@@ -1,0 +1,19 @@
+  export type Limit = {
+    id: number,
+    desc: string,
+    mYellInf: number,
+    mSign: string,
+    mYellSup: number,
+    mGrInf: number,
+    mGrSup: number,
+    wYellInf: number,
+    wSign: string,
+    wYellSup: number,
+    wGrInf: number,
+    wGrSup: number,
+    cYellInf: number,
+    cSign: string,
+    cYellSup: number,
+    cGrInf: number,
+    cGrSup: number
+  }

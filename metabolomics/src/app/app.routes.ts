@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
+import { FileManagerComponent } from '../pages/file-manager/file-manager.component';
 
 export const routes: Routes = [
-    {
-        path: "" ,
-        component: HomeComponent
-    }
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'filemanager/:company',
+    component: FileManagerComponent,
+  },
 ];

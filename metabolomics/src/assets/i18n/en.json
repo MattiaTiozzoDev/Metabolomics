@@ -1,0 +1,278 @@
+{
+  "home": {
+    "dropdownText": "Trascina qui il file XLSM oppure clicca per selezionarlo",
+    "selectedFile": "File selezionato",
+    "selectFile": "seleziona file"
+  },
+  "exp": {
+    "acidocitrico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidoaconitico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidoisocitrico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acido2ossoglutarico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidosuccinico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidofumarico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidomalico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido2idrossiglutarato": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoomovanillico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidomanilvandelico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "hvavma": {
+      "base": "",
+      "hight": ""
+    },
+    "acidodopac": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acido5idrossindolacetico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidochinurenico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidochinolinico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidopantotenico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acidoglutarico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidometilmalonico": {
+      "base": "",
+      "hight": ""
+    },
+    "Nacetilcisteina": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoascorbico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acido4piridossico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "3idrossi3metilglutarico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acido4metil2ossovalerico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidomandelico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoomogentisico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido2idrossiisocaproico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoNacetilaspartico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidomalonico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido4idrossifenilpiruvico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido2idrossi3metilbutirrico": {
+      "base": "",
+      "hight": ""
+    },
+    "uracileetimina": {
+      "base": "",
+      "hight": ""
+    },
+    "acidocitramalico": {
+      "base": "",
+      "hight": ""
+    },
+    "5idrossimetil2furancarbossilico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidotartarico": {
+      "base": "",
+      "hight": ""
+    },
+    "furancarbonilglicina": {
+      "base": "",
+      "hight": ""
+    },
+    "acidotricarballilico": {
+      "base": "",
+      "hight": ""
+    },
+    "arabinosio": {
+      "base": "",
+      "hight": ""
+    },
+    "arabitolo": {
+      "base": "",
+      "hight": ""
+    },
+    "acido25furandicarbossilico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido4idrossiippurico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoippurico": {
+      "base": "",
+      "hight": ""
+    },
+    "ippurico": {
+      "low": ""
+    },
+    "acidobenzoico": {
+      "base": "",
+      "hight": ""
+    },
+    "indacano": {
+      "base": "",
+      "hight": ""
+    },
+    "acido4idrossifenilacetico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido3indoloacetico": {
+      "base": "",
+      "hight": ""
+    },
+    "pcresolo": {
+      "base": "",
+      "hight": ""
+    },
+    "3idrossifenilacetico": {
+      "base": "",
+      "hight": ""
+    },
+    "HPHPA": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoglicolico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoglicerico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoossalico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidosebacico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoadipico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidosuberico": {
+      "base": "",
+      "hight": ""
+    },
+    "etilmalonico": {
+      "base": "",
+      "hight": ""
+    },
+    "acido3idrossibutirrico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidopiruvicoelattico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "2idrossiippurico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidoorotico": {
+      "base": "",
+      "hight": ""
+    },
+    "acidopiroglutammico": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    },
+    "acido2idrossibutirrico": {
+      "base": "",
+      "hight": ""
+    },
+    "creatinina": {
+      "base": "",
+      "hight": "",
+      "low": ""
+    }
+  }
+}

@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    width: 595px;
+    height: 842px;
+    padding-top: 85px;
+    background: linear-gradient(180deg, #29AABC 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logo-valsambro-container{
+    height: 555px;
+    margin: 0 20px 0 20px;
+    background-image: url('/assets/img/transparent-logo-valsambro.svg');
+    background-repeat: no-repeat;
+}
+
+.w-360px{
+    width: 360px;
+}
+
+.gap-10px{
+    gap: 10px;
+}
+
+.gap-5px{
+    gap: 5px;
+}

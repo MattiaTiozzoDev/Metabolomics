@@ -1,32 +1,53 @@
-.container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@use '../../styles/colors.scss' as col;
 
-    h1{
-        margin: 20px;
-    }
-    button {
-        margin: 20px;
-        background: #209564;
-        width: 150px;
-        height: 50px;
-        border: solid 1px rgb(237, 237, 237);
-        border-radius: 10px;
-        cursor: pointer;
-    }
+:host{
+  display: block;
+  height: 555px;
+  padding-top: 20px;
 }
 
-.file-drop-zone {
-  border: 2px dashed #aaa;
-  padding: 30px;
-  text-align: center;
+.company-button{
+  position:relative;
+  width: 469px;
+  height: 234px;
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
+  transition: 0.15s linear;
+
+  img{
+    width: 75px;
+    height: 75px;
+  }
 }
 
-.file-drop-zone.drag-over {
-  border-color: #3f51b5;
-  background-color: #f0f0ff;
+.company-button:hover{
+  
+  background-color: col.$secondary;
+
+  img,h2,h4{
+    color: col.$primary;
+  }
 }
+
+.company-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.16)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+

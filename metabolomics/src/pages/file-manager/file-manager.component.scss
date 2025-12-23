@@ -1,0 +1,77 @@
+@use '../../styles/colors.scss' as col;
+
+:host{
+  display: block;
+    height: 555px;
+    padding-top: 20px;
+}
+
+.w-385px{
+  width: 385px;
+}
+
+.file-drop-zone {
+  width: 430px;
+  height: 430px;
+  border: 2px dashed #ffffff;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+button {
+  position: relative;
+  width: 200px;
+  height: 45px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: 0.15s linear;
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: not-allowed !important;
+  background-color: rgb(255, 255, 255, 0.1) !important
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.16)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.file-drop-zone.drag-over {
+  border-color: col.$secondary;
+}
+
+.border-pulse {
+  animation: borderPulse 3s infinite;
+}
+
+@keyframes borderPulse {
+  0% {
+    border-color: col.$secondary;
+  }
+  50% {
+    border-color: col.$primary;
+  }
+  100% {
+    border-color: col.$secondary;
+  }
+}

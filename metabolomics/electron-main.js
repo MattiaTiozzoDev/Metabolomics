@@ -5,10 +5,15 @@ const path = require("path");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1200,
-    height: 800,
+    width: 1080,
+    height: 760,
+    fullscreenable: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, "public", "icon.png"),
+    maxHeight: 760,
+    maxWidth: 1080,
+    minHeight: 760,
+    minWidth: 760,
+    icon: path.join(__dirname, "public", "img/icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "electron.preload.js"),
       nodeIntegration: false,

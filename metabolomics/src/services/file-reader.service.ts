@@ -7,10 +7,8 @@ import { JsonFile } from '../types/files.type';
   providedIn: 'root',
 })
 export class FileReaderService {
-
   generateJSON(event: Event): Observable<JsonFile> {
-    return new Observable(observer => {
-      debugger;
+    return new Observable((observer) => {
       const input = event.target as HTMLInputElement;
       if (!input.files?.length) {
         observer.error('Nessun file selezionato');
@@ -25,13 +23,13 @@ export class FileReaderService {
           const arrayBuffer = reader.result as ArrayBuffer;
           const workbook = XLSX.read(arrayBuffer, { type: 'array' });
 
-          const sheetName = workbook.SheetNames[0];
+          const sheetName = workbook.SheetNames[4];
           const sheet = workbook.Sheets[sheetName];
 
           const fileName = file.name;
           const json = XLSX.utils.sheet_to_json(sheet, { defval: null });
 
-          observer.next({json,fileName});
+          observer.next({ json, fileName });
           observer.complete();
         } catch (err) {
           observer.error(err);
@@ -46,8 +44,9 @@ export class FileReaderService {
 
   generateJSONFromDrop(file: File): Observable<JsonFile> {
     debugger;
-    return new Observable(observer => {
-      if (!file) { // correggiamo la logica
+    return new Observable((observer) => {
+      if (!file) {
+        // correggiamo la logica
         observer.error('Nessun file selezionato');
         return;
       }
@@ -65,7 +64,7 @@ export class FileReaderService {
           const fileName = file.name;
           const json = XLSX.utils.sheet_to_json(sheet, { defval: null });
 
-          observer.next({json, fileName});
+          observer.next({ json, fileName });
           observer.complete();
         } catch (err) {
           observer.error(err);
@@ -77,6 +76,4 @@ export class FileReaderService {
       reader.readAsArrayBuffer(file);
     });
   }
-  
-  
 }
