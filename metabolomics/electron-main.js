@@ -1,7 +1,9 @@
-const { warn } = require("console");
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
 const fs = require("fs");
 const path = require("path");
+const { startAssetServer, stopAssetServer } = require("./server");
+
+let assetPort;
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -13,7 +15,7 @@ function createWindow() {
     maxWidth: 1080,
     minHeight: 760,
     minWidth: 760,
-    icon: path.join(__dirname, "public", "img/icon.png"),
+    icon: path.join(__dirname, "assets", "/img/icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "electron.preload.js"),
       nodeIntegration: false,
@@ -34,16 +36,23 @@ function createWindow() {
 
 // --- Qui inserisci l'handler IPC ---
 ipcMain.handle("export-pdf", async (event, payload) => {
-  debugger;
   const { htmlContent, fileName } = payload;
-  // Finestra invisibile per il PDF
-  const pdfWin = new BrowserWindow({ show: false });
+
+  // Inietta <base> + fallback
+  const finalHtml = buildPrintableHtml(htmlContent);
+
+  const pdfWin = new BrowserWindow({
+    show: false,
+    webPreferences: {
+      sandbox: false,
+    },
+  });
 
   await pdfWin.loadURL(
-    `data:text/html;charset=utf-8,${encodeURIComponent(htmlContent)}`
+    `data:text/html;charset=utf-8,${encodeURIComponent(finalHtml)}`
   );
 
-  // Apri dialog per scegliere la cartella
+  // Dialog cartella
   const { canceled, filePaths } = await dialog.showOpenDialog({
     properties: ["openDirectory"],
   });
@@ -53,13 +62,13 @@ ipcMain.handle("export-pdf", async (event, payload) => {
     throw new Error("Salvataggio annullato");
   }
 
-  const folderPath = filePaths[0];
-  const pdfPath = path.join(folderPath, fileName);
+  const pdfPath = path.join(filePaths[0], fileName);
 
   const pdfData = await pdfWin.webContents.printToPDF({
     printBackground: true,
-    marginsType: 0,
+    marginsType: 2,
     pageSize: "A4",
+    preferCSSPageSize: true,
   });
 
   fs.writeFileSync(pdfPath, pdfData);
@@ -67,6 +76,40 @@ ipcMain.handle("export-pdf", async (event, payload) => {
 
   return pdfPath;
 });
+
+function buildPrintableHtml(bodyHtml) {
+  const assetBaseUrl = `http://localhost:${assetPort}`;
+  const distRoot = path.join(__dirname, "dist/metabolomics/browser");
+  const styles = getAngularStyles(distRoot);
+
+  const cssLink = `${assetBaseUrl}/${styles[0]}`;
+  return `
+  <html>
+     <head>
+        <base href="${assetBaseUrl}">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="${cssLink}">
+        <style>
+          @page {
+            size: A4;
+            margin: 0mm;
+          }
+
+          body {
+            zoom: 1.3333333;
+          }
+        </style>
+    </head>
+    <body>
+      ${bodyHtml}
+    </body>
+  </html>
+  `;
+}
+
+function getAngularStyles(distRoot) {
+  return fs.readdirSync(distRoot).filter((f) => /^styles-.*\.css$/.test(f));
+}
 
 // Hot reload per Electron in sviluppo
 if (process.env.NODE_ENV === "development") {
@@ -76,7 +119,16 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(async () => {
+  try {
+    const res = await startAssetServer();
+    assetPort = res.port;
+    createWindow();
+  } catch (err) {
+    console.error("Asset server failed:", err);
+    app.quit();
+  }
+});
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -88,4 +140,8 @@ app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
+});
+
+app.on("before-quit", () => {
+  stopAssetServer();
 });

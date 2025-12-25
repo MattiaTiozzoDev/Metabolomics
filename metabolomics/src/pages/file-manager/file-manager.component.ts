@@ -6,15 +6,13 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { StaticDataService } from '../../services/static-data.service';
 import { IndexPageComponent } from '../../components/pdf-pages/index-page/index-page.component';
 import { PresentationPageComponent } from '../../components/pdf-pages/presentation-page/presentation-page.component';
+import { PdfContainerComponent } from '../pdf-container/pdf-container.component';
+import { FooterComponent } from '../../components/shared/footer/footer.component';
+import { NavbarComponent } from '../../components/shared/navbar/navbar.component';
 
 @Component({
   selector: 'metabolomics-file-manager',
-  imports: [
-    TranslateModule,
-    TranslatePipe,
-    IndexPageComponent,
-    PresentationPageComponent,
-  ],
+  imports: [TranslateModule, TranslatePipe, PdfContainerComponent],
   templateUrl: './file-manager.component.html',
   styleUrl: './file-manager.component.scss',
 })

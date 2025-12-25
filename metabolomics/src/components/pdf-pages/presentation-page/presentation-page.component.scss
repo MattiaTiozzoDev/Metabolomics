@@ -13,6 +13,18 @@
     background-repeat: no-repeat;
 }
 
+.page-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: top 70% right 0;
+    background-size: 430px 576px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
 .w-360px{
     width: 360px;
 }

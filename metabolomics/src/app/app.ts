@@ -15,8 +15,6 @@ import { IndexPageComponent } from '../components/pdf-pages/index-page/index-pag
     NavbarComponent,
     FooterComponent,
     PdfContainerComponent,
-    PresentationPageComponent,
-    IndexPageComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
