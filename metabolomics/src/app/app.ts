@@ -1,33 +1,40 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { StaticDataService } from '../services/static-data.service';
 import { NavbarComponent } from '../components/shared/navbar/navbar.component';
 import { FooterComponent } from '../components/shared/footer/footer.component';
-import { PdfContainerComponent } from '../pages/pdf-container/pdf-container.component';
-import { PresentationPageComponent } from '../components/pdf-pages/presentation-page/presentation-page.component';
-import { IndexPageComponent } from '../components/pdf-pages/index-page/index-page.component';
+import { CustomersDataService } from '../services/customers-data.service';
+import { forkJoin, take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    NavbarComponent,
-    FooterComponent,
-    PdfContainerComponent,
-  ],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   constructor(
     private translate: TranslateService,
-    private readonly staticDataService: StaticDataService
+    private readonly staticDataService: StaticDataService,
+    private customersDataService: CustomersDataService
   ) {
+    this.translate.setFallbackLang('it');
     this.translate.use('it');
   }
+
   ngOnInit(): void {
-    this.staticDataService.loadLimit().subscribe();
-    this.staticDataService.loadExplanations().subscribe();
+    forkJoin({
+      limits: this.staticDataService.loadLimit(),
+      explanations: this.staticDataService.loadExplanations(),
+      example: this.staticDataService.loadExample(),
+    })
+      .pipe()
+      .subscribe(({ example }) => {
+        console.log(example);
+        this.customersDataService.setData(example);
+      });
   }
+
+  ngOnDestroy(): void {}
 }

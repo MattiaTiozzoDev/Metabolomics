@@ -3,3 +3,43 @@
     width: 595px;
     height: 842px;
 }
+
+.section-header{
+    width: 595px !important;
+    height: 30px;
+    margin-left: -40px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #29AABC 52.88%);
+}
+
+h5{
+    font-size: 8px;
+    font-weight: 400;
+    color: #383838;
+}
+
+h6{
+    color: #383838;
+}
+
+h6.white{
+    color: white;
+}
+
+.table-header{
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    background: #29AABC;
+}
+
+.metabolites-table{
+    width: 250px;
+    height: 365px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background: #024F8433;
+}
+
+

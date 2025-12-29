@@ -1,0 +1,65 @@
+:host {
+    display: block;
+}
+
+.table-header{
+    height: 30px;
+    border-radius: 15px;
+    background-color: #29AABC;
+}
+
+.note-container{
+    height: 10px;
+    background-color: #29AABC;
+}
+
+.note{
+    font-size: 7px;
+}
+
+.red{
+    color: #E62138 !important;
+}
+
+.small{
+    font-size: 5px;
+}
+
+.circle{
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
+    background-color: #29AABC;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.row-id{
+    background-color: #29AABC;
+}
+
+.red-circle{
+     background-color: #E62138;
+}
+
+.table-header h5{
+    font-size: 8px;
+}
+
+.table-body h5 {
+    font-size: 7px;
+    color: #383838
+}
+
+.table-body h5.white {
+    font-size: 7px;
+    color: white
+}
+
+hr{
+    border: 0.5px solid #29abbc83;
+    background-color: #29abbc83;
+}

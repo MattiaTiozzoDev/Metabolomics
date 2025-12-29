@@ -2,21 +2,33 @@
 <div class="flex col gap-10px">
     <div class="flex row justify-between gap-20px">
         <div class="flex col w-140px">
-            <h5 class="white-transparent pb-4px">{{ 'pageheader.acceptation' | translate }}</h5>
+            <div class="flex w-100 justify-between">
+                <h5 class="white-transparent pb-4px">{{ 'pageheader.acceptation' | translate }}:</h5>
+                <h5 class="white-transparent pb-4px">{{ customer?.accNumber }}</h5>
+            </div>
             <hr>
         </div>
         <div class="flex col w-140px">
-            <h5 class="white-transparent pb-4px">{{ 'pageheader.code' | translate }}</h5>
+            <div class="flex w-100 justify-between">
+                <h5 class="white-transparent pb-4px">{{ 'pageheader.code' | translate }}:</h5>
+                <h5 class="white-transparent pb-4px">{{ customer?.orderId }}</h5>
+            </div>
             <hr>
         </div>
     </div>
     <div class="flex row justify-between">
         <div class="flex col w-140px">
-            <h5 class="white-transparent pb-4px">{{ 'pageheader.accdate' | translate }}</h5>
+            <div class="flex w-100 justify-between">
+                <h5 class="white-transparent pb-4px">{{ 'pageheader.accdate' | translate }}:</h5>
+                <h5 class="white-transparent pb-4px">{{ customer?.accDate }}</h5>
+            </div>
             <hr>
         </div>
         <div class="flex col w-140px">
-            <h5 class="white-transparent pb-4px">{{ 'pageheader.refdate' | translate }}</h5>
+            <div class="flex w-100 justify-between">
+                <h5 class="white-transparent pb-4px">{{ 'pageheader.refdate' | translate }}:</h5>
+                <h5 class="white-transparent pb-4px">{{ customer?.refDate }}</h5>
+            </div>
             <hr>
         </div>
     </div>

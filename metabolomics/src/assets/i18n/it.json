@@ -35,7 +35,7 @@
       "title": "Indice",
       "subtitle1": "Analisi degli Acidi Organici Urinari",
       "subtitle2": "Profilo Metabolomico",
-      "index1": "Energia cellulare e Marker mitocondrialile",
+      "index1": "Energia cellulare e Marker mitocondriali",
       "index2": "Neurotrasmettitori",
       "index3": "Crescita microbica intestinale",
       "index4": "Metaboliti degli Ossalati",
@@ -45,6 +45,85 @@
       "index8": "Energia cellulare e Marker mitocondriali",
       "index9": "Neurotrasmettitori",
       "fiscalcode": "Codice fiscale:"
+    },
+    "metabolomicstable": {
+      "tablepage": {
+        "title": "Analisi degli Acidi Organici",
+        "subtitle": "Profilo Nutrizionale e Metabolomico"
+      },
+      "columns": {
+        "markers": "Markers Metabolomici",
+        "markers2": "nelle urine",
+        "range": "Range",
+        "range2": "di riferimento",
+        "val": "Valore",
+        "val2": "paziente",
+        "unit": "Unità",
+        "unit2": "di misura",
+        "pop": "Popolazione statistica"
+      },
+      "child": "minore di 13 anni",
+      "man": "uomo maggiore di 13 anni",
+      "woman": "donna maggiore di 13 anni",
+      "creatine": "µmoli/mmoli di creatinina",
+      "groups": {
+        "0": {
+          "sectionTitle": "Energia cellulare e Marker Mitocondriali",
+          "title": "Ciclo Glicolitico"
+        },
+        "1": {
+          "title": "Chetoni ed Ossidazione degli Acidi Grassi"
+        },
+        "2": {
+          "title": "Markers Mitocondriali"
+        },
+        "3": {
+          "sectionTitle": "Neurotrasmettitori",
+          "title": "Metaboliti della fenilalanina e della Tirosina"
+        },
+        "4": {
+          "title": "Metaboliti del Triptofano"
+        },
+        "5": {
+          "sectionTitle": "Crescita Microbica intestinale",
+          "title": "Markers di Lieviti e Funghi"
+        },
+        "6": {
+          "title": "Markers dei Batteri"
+        },
+        "7": {
+          "title": "Markers dei Clostridi"
+        },
+        "8": {
+          "sectionTitle": "Metaboliti degli Ossalati",
+          "title": "Metaboliti degli Ossalati"
+        },
+        "9": {
+          "sectionTitle": "Marker nutrizionali",
+          "title": "Marker nutrizionali"
+        },
+        "10": {
+          "sectionTitle": "Metaboliti della Pirimidina associati al Metabolismo dei Folati",
+          "title": "Metaboliti della Pirimidina associati al Metabolismo dei Folati"
+        },
+        "11": {
+          "sectionTitle": "Indicatori di Detossificazione",
+          "title": "Indicatori di Detossificazione"
+        },
+        "12": {
+          "sectionTitle": "Metaboliti degli Amminoacidi",
+          "title": "Metaboliti degli Amminoacidi"
+        }
+      }
+    },
+    "profilepage": {
+      "title": "Profilo Metabolomico",
+      "subtitle": "La risoluzione dei problemi legati agli effetti epigenetici",
+      "sectiontitle1": "Introduzione sul profilo Metabolomico",
+      "text": "Il test analizza gli acidi organici presenti nei metaboliti urinari. Queste biomolecole sono considerate dei veri markers funzionali, in grado di rilevare alterazioni dovute a carenze nutrizionali e vitaminiche, esposizione a tossici, metabolismo dei neurotrasmetitori, disfunzioni mitocondriali (ciclo di krebs), stress ossidativo, sovracrescita di batteri e funghi, livello degli ossalati. La presenza di questi markers funzionali è intimamente correlata a molte patologie cronico-degenerative e diviene il fulcro della loro diagnostica, consentendo di attuare una proposta terapeutica unica nella sua personalizzazione.",
+      "sectiontitle2": "Il profilo del paziente evidenzia degli squilibri",
+      "hight": "Metaboliti in eccesso",
+      "low": "Metaboliti in difetto"
     }
   },
   "exp": {

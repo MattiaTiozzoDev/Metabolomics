@@ -60,6 +60,12 @@ button::before {
   border-color: col.$secondary;
 }
 
+.download-border{
+  border: 1px solid col.$secondary;
+  padding: 5px;
+  animation: borderPulse 1s infinite;
+}
+
 .border-pulse {
   animation: borderPulse 3s infinite;
 }
@@ -75,3 +81,4 @@ button::before {
     border-color: col.$secondary;
   }
 }
+

@@ -282,7 +282,8 @@
     "cSign": "≤",
     "cYellSup": 8.3,
     "cGrInf": 2.9,
-    "cGrSup": 6.5
+    "cGrSup": 6.5,
+    "note": "Metaboliti legati ai difetti genetici del ciclo mitocondriale"
   },
   {
     "id": 16,
@@ -1099,7 +1100,8 @@
     "cSign": "-",
     "cYellSup": 12.4,
     "cGrInf": 1.6,
-    "cGrSup": 8.8
+    "cGrSup": 8.8,
+    "note": "Salicilati di aspartame o batteri GI"
   },
   {
     "id": 59,
@@ -1118,7 +1120,8 @@
     "cSign": "-",
     "cYellSup": 0.3,
     "cGrInf": 0,
-    "cGrSup": 0
+    "cGrSup": 0,
+    "note": "Eccesso di ammonio"
   },
   {
     "id": 60,
@@ -1137,7 +1140,8 @@
     "cSign": "-",
     "cYellSup": 23.7,
     "cGrInf": 10.9,
-    "cGrSup": 19.5
+    "cGrSup": 19.5,
+    "note": "Glutatione"
   },
   {
     "id": 61,

@@ -4,9 +4,15 @@
     <h3 class="green mt-33px">{{ company }}</h3>
     <h4 class="white mt-16px">{{ 'filemanager.exp1' | translate }}</h4>
     <h4 class="white mt-19px">{{ 'filemanager.exp2' | translate }}</h4>
-    <button (click)="download()" class="green-bg blue bold mt-44px" [disabled]="!file">
+    <button (click)="download()" class="green-bg blue bold mt-44px" [disabled]="!file || loader">
       {{ 'filemanager.downloadreports' | translate}}
     </button>
+    @if(loader){
+      <div class="download-border flex col justify-center align-center mt-20px py-5px">
+        <h3 class="white">{{ 'Download in corso...' | translate}}</h3>
+        <h4 class="white bold mt-10px">{{ 'File scaricati' | translate}}: {{customersDataService.customerIndex - 1}} su {{numberOfCustomers - 1}}</h4>
+      </div>
+    }
   </div>
 
   <div class="file-drop-zone" (drop)="onFileDropped($event)" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" [class.drag-over]="isDragOver" [class.border-pulse]="!!file">
@@ -23,7 +29,7 @@
     }
     <button (click)="fileInput.click()" class="green-bg blue bold mt-10px">
       {{ 'filemanager.selectfile' | translate}}
-    </button>
+    </button> 
   </div>
 </div>
 

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FileReaderService } from '../../services/file-reader.service';
 import { PdfService } from '../../services/file-export.service';
-import { take } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { StaticDataService } from '../../services/static-data.service';
 import { IndexPageComponent } from '../../components/pdf-pages/index-page/index-page.component';
@@ -9,6 +9,7 @@ import { PresentationPageComponent } from '../../components/pdf-pages/presentati
 import { PdfContainerComponent } from '../pdf-container/pdf-container.component';
 import { FooterComponent } from '../../components/shared/footer/footer.component';
 import { NavbarComponent } from '../../components/shared/navbar/navbar.component';
+import { CustomersDataService } from '../../services/customers-data.service';
 
 @Component({
   selector: 'metabolomics-file-manager',
@@ -16,26 +17,32 @@ import { NavbarComponent } from '../../components/shared/navbar/navbar.component
   templateUrl: './file-manager.component.html',
   styleUrl: './file-manager.component.scss',
 })
-export class FileManagerComponent {
+export class FileManagerComponent implements OnDestroy {
   public company: string = 'Val Sambro';
   public file: any;
   public inputFileName: string;
   public outputFileName = 'output.pdf';
   public isDragOver: boolean = false;
+  public loadSubscription: Subscription | null;
+  public dropLoadSubscription: Subscription | null;
+
+  public loader = false;
+  public numberOfCustomers = 0;
 
   constructor(
     private readonly fileReaderService: FileReaderService,
     private pdfService: PdfService,
-    private staticdataService: StaticDataService
+    public customersDataService: CustomersDataService
   ) {}
 
   onFileSelected(event: Event) {
-    this.fileReaderService
+    this.loadSubscription = this.fileReaderService
       .generateJSON(event)
-      .pipe(take(1))
+      .pipe()
       .subscribe((data) => {
         this.file = data.json;
         this.inputFileName = data.fileName;
+        this.customersDataService.setData(this.file);
       });
   }
 
@@ -60,26 +67,42 @@ export class FileManagerComponent {
   }
 
   loadFile(file: File) {
-    this.fileReaderService
+    this.dropLoadSubscription = this.fileReaderService
       .generateJSONFromDrop(file)
-      .pipe(take(1))
+      .pipe()
       .subscribe((data) => {
         this.file = data.json;
-        const jsonString = JSON.stringify(this.file);
-        console.log(jsonString);
         this.inputFileName = data.fileName;
+        this.customersDataService.setData(this.file);
       });
   }
 
+  private setOutputFileName() {
+    let customer = this.customersDataService.getCustomer();
+    this.outputFileName =
+      customer.accNumber + '-' + customer.name.replace(' ', '_') + '.pdf';
+  }
+
   async download() {
-    try {
-      const path = await this.pdfService.exportElementById(
-        'pdf-section',
-        this.outputFileName
-      );
-      alert('PDF salvato in: ' + path);
-    } catch (err) {
-      alert('Errore: ' + err);
+    this.numberOfCustomers = this.customersDataService.customersData.length;
+    for (let i = 1; i < this.numberOfCustomers - 1; i++) {
+      this.customersDataService.setCustomer();
+      this.setOutputFileName();
+      try {
+        const path = await this.pdfService.exportElementById(
+          'pdf-section',
+          this.outputFileName
+        );
+        this.loader = true;
+      } catch (err) {
+        alert('Errore: ' + err);
+      }
     }
+    this.loader = false;
+  }
+
+  ngOnDestroy(): void {
+    this.loadSubscription?.unsubscribe();
+    this.dropLoadSubscription?.unsubscribe();
   }
 }

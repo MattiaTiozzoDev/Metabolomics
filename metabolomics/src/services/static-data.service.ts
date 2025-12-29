@@ -6,8 +6,9 @@ import { Explanations } from '../types/explanations.type';
 
 @Injectable({ providedIn: 'root' })
 export class StaticDataService {
-  private limit: Limit[] | null = null;
-  private explanations: Explanations[] | null = null;
+  public limit: Limit[] | null = null;
+  public explanations: Explanations[] | null = null;
+  public example: any[] | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +24,14 @@ export class StaticDataService {
     return this.http.get<Explanations[]>('assets/jsons/explanations.json').pipe(
       tap((data) => {
         this.explanations = data;
+      })
+    );
+  }
+
+  loadExample(): Observable<Explanations[]> {
+    return this.http.get<Explanations[]>('assets/jsons/example.json').pipe(
+      tap((data) => {
+        this.example = data;
       })
     );
   }

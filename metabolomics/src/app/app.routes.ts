@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: FileManagerComponent,
   },
   {
-    path: 'pdfcontainer',
+    path: 'pdf-container',
     component: PdfContainerComponent,
   },
 ];

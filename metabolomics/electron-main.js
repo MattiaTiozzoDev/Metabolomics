@@ -4,6 +4,7 @@ const path = require("path");
 const { startAssetServer, stopAssetServer } = require("./server");
 
 let assetPort;
+let filePaths;
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -52,14 +53,18 @@ ipcMain.handle("export-pdf", async (event, payload) => {
     `data:text/html;charset=utf-8,${encodeURIComponent(finalHtml)}`
   );
 
-  // Dialog cartella
-  const { canceled, filePaths } = await dialog.showOpenDialog({
-    properties: ["openDirectory"],
-  });
+  // 🔒 Dialog aperto SOLO la prima volta
+  if (!filePaths) {
+    const result = await dialog.showOpenDialog({
+      properties: ["openDirectory"],
+    });
 
-  if (canceled || !filePaths.length) {
-    pdfWin.close();
-    throw new Error("Salvataggio annullato");
+    if (result.canceled || !result.filePaths.length) {
+      pdfWin.close();
+      throw new Error("Salvataggio annullato");
+    }
+
+    filePaths = result.filePaths; // ← ora è valorizzata
   }
 
   const pdfPath = path.join(filePaths[0], fileName);

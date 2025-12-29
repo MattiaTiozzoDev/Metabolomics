@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as XLSX from 'xlsx';
 import { JsonFile } from '../types/files.type';
+import { StaticDataService } from './static-data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FileReaderService {
+  constructor() {}
+
   generateJSON(event: Event): Observable<JsonFile> {
     return new Observable((observer) => {
       const input = event.target as HTMLInputElement;
@@ -23,7 +26,7 @@ export class FileReaderService {
           const arrayBuffer = reader.result as ArrayBuffer;
           const workbook = XLSX.read(arrayBuffer, { type: 'array' });
 
-          const sheetName = workbook.SheetNames[4];
+          const sheetName = workbook.SheetNames[0];
           const sheet = workbook.Sheets[sheetName];
 
           const fileName = file.name;
@@ -43,7 +46,6 @@ export class FileReaderService {
   }
 
   generateJSONFromDrop(file: File): Observable<JsonFile> {
-    debugger;
     return new Observable((observer) => {
       if (!file) {
         // correggiamo la logica
