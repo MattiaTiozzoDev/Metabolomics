@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { StaticDataService } from './static-data.service';
 import { CustomerType } from '../enums/customerType.enum';
 import { Customer, CustomerData, MappedValue } from '../types/customers.type';
-import { Subject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { FileTypeService } from './file-type.service';
 import { GUTSYS_NAMES } from '../configs/gutsys-names';
 import { VLSCFA_NAMES } from '../configs/vlscfa-names';
@@ -29,8 +29,8 @@ const CUSTOMER_COLUMNS = [
 })
 export class CustomersDataService {
   public customersData: CustomerData[] = [];
-  public customerDataSubject: Subject<CustomerData> =
-    new Subject<CustomerData>();
+  public customerDataSubject: ReplaySubject<CustomerData> =
+    new ReplaySubject<CustomerData>(1);
   public $customerData = this.customerDataSubject.asObservable();
   public customerIndex = 0;
 

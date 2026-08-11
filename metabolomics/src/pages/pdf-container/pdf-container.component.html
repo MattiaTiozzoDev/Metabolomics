@@ -66,7 +66,7 @@
     <istfec-result-page [page]="'06'"></istfec-result-page>
 }
 
-@if(fileType === fileTypeEnum.GUTSYS) {
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 1) {
     <presentation-page></presentation-page>
     <index-page [customer]="customer" [type]="customer?.type"></index-page>
     <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
@@ -79,31 +79,96 @@
     <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
     <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
     <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
-    @if(customer?.type == 1) {
-        <gutsys-aroma-page [page]="'11'"></gutsys-aroma-page>
-        <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
-    }@else if(customer?.type == 2) {
-        <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
-        <gutsys-aroma-page [page]="'12'"></gutsys-aroma-page>
-        <gutsys-indication-page [page]="'13'" [date]="customer?.refDate"></gutsys-indication-page>
-    }@else if(customer?.type == 3) {
-        <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
-        <gutsys-aroma-page [page]="'12'"></gutsys-aroma-page>
-        <gutsys-fungus-page [page]="'13'" ></gutsys-fungus-page>
-        <gutsys-indication-page [page]="'14'" [date]="customer?.refDate"></gutsys-indication-page>
+    <gutsys-aroma-page [page]="'11'"></gutsys-aroma-page>
+    <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
+}
 
-    }@else if(customer?.type == 4) {
-        <gutsys-aroma-page [page]="'11'"></gutsys-aroma-page>
-        <gutsys-fungus-page [page]="'12'" ></gutsys-fungus-page>
-        <gutsys-indication-page [page]="'13'" [date]="customer?.refDate"></gutsys-indication-page>
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 2) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Metaboliti intestinali e implicazioni sistemiche'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/metaboliti_intestinali_valsambro.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <gutsys-caracteristic-page [page]="'05'"></gutsys-caracteristic-page>
+    <gutsys-table-page [pageId]="0" [page]="'06'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="1" [page]="'07'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
+    <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
+    <gutsys-aroma-page [page]="'12'"></gutsys-aroma-page>
+    <gutsys-indication-page [page]="'13'" [date]="customer?.refDate"></gutsys-indication-page>
+}
 
-    }@else if(customer?.type == 5) {
-        <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
-        <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 3) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Metaboliti intestinali e implicazioni sistemiche'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/metaboliti_intestinali_valsambro.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <gutsys-caracteristic-page [page]="'05'"></gutsys-caracteristic-page>
+    <gutsys-table-page [pageId]="0" [page]="'06'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="1" [page]="'07'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
+    <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
+    <gutsys-aroma-page [page]="'12'"></gutsys-aroma-page>
+    <gutsys-fungus-page [page]="'13'" ></gutsys-fungus-page>
+    <gutsys-indication-page [page]="'14'" [date]="customer?.refDate"></gutsys-indication-page>
+}
 
-    }@else if(customer?.type == 6) {
-        <gutsys-indication-page [page]="'11'" [date]="customer?.refDate"></gutsys-indication-page>
-    }
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 4) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Metaboliti intestinali e implicazioni sistemiche'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/metaboliti_intestinali_valsambro.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <gutsys-caracteristic-page [page]="'05'"></gutsys-caracteristic-page>
+    <gutsys-table-page [pageId]="0" [page]="'06'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="1" [page]="'07'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
+    <gutsys-aroma-page [page]="'11'"></gutsys-aroma-page>
+    <gutsys-fungus-page [page]="'12'" ></gutsys-fungus-page>
+    <gutsys-indication-page [page]="'13'" [date]="customer?.refDate"></gutsys-indication-page>
+}
+
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 5) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Metaboliti intestinali e implicazioni sistemiche'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/metaboliti_intestinali_valsambro.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <gutsys-caracteristic-page [page]="'05'"></gutsys-caracteristic-page>
+    <gutsys-table-page [pageId]="0" [page]="'06'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="1" [page]="'07'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
+    <gutsys-parasite-page [page]="'11'" ></gutsys-parasite-page>
+    <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
+}
+
+@if(fileType === fileTypeEnum.GUTSYS && customer?.type == 6) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <gutsys-introduction-page [page]="'03'"></gutsys-introduction-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Metaboliti intestinali e implicazioni sistemiche'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/metaboliti_intestinali_valsambro.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <gutsys-caracteristic-page [page]="'05'"></gutsys-caracteristic-page>
+    <gutsys-table-page [pageId]="0" [page]="'06'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="1" [page]="'07'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="2" [page]="'08'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="3" [page]="'09'"></gutsys-table-page>
+    <gutsys-table-page [pageId]="4" [page]="'10'"></gutsys-table-page>
+    <gutsys-indication-page [page]="'11'" [date]="customer?.refDate"></gutsys-indication-page>
 }
 
 
@@ -121,38 +186,93 @@
     <metabolomics-explanation-page [profile]="profile" [customer]="customer" [basicIndex]="9"></metabolomics-explanation-page>
 }
 
-@if(fileType === fileTypeEnum.IGGINT) {
+@if(fileType === fileTypeEnum.IGGINT && customer?.type == 2) {
     <presentation-page></presentation-page>
     <index-page [customer]="customer" [type]="customer?.type"></index-page>
     <iggint-intro-page [page]="'03'"></iggint-intro-page>
-    @if(customer?.type == 2){
-        <iggint-table-page [tables]="[0,1]" [page]="'04'"></iggint-table-page>
-        <iggint-table-page [tables]="[2]" [page]="'05'"></iggint-table-page>
-        <iggint-table-page [tables]="[3]" [page]="'06'"></iggint-table-page>
-        <iggint-table-page [tables]="[4]" [page]="'07'"></iggint-table-page>
-        <iggint-table-page [tables]="[5,6]" [page]="'08'"></iggint-table-page>
-        <iggint-table-page [tables]="[7]" [page]="'09'"></iggint-table-page>
-        <iggint-table-page [tables]="[8]" [page]="'10'"></iggint-table-page>
-        <iggint-table-page [tables]="[9]" [page]="'12'"></iggint-table-page>
-        <iggint-table-page [tables]="[10]" [page]="'13'" [last]="true" [customer]="customer" ></iggint-table-page>
-        <iggint-result-page [page]="'14'"></iggint-result-page>
-        <iggint-result-page-2 [page]="'15'"></iggint-result-page-2>
-    }@else {
-        <iggint-table-page [tables]="[0,1]" [page]="'04'"></iggint-table-page>
-        <iggint-table-page [tables]="[2,3]" [page]="'05'"></iggint-table-page>
-        <iggint-table-page [tables]="[4,5]" [page]="'06'"></iggint-table-page>
-        <iggint-table-page [tables]="[6,7]" [page]="'07'"></iggint-table-page>
-        <iggint-table-page [tables]="[8,9]" [page]="'08'" ></iggint-table-page>
-        <iggint-table-page [tables]="[10]" [page]="'09'" [last]="true" [customer]="customer" ></iggint-table-page>
-        <iggint-result-page [page]="'10'"></iggint-result-page>
-        <iggint-result-page-2 [page]="'11'"></iggint-result-page-2>
-    }
+    <iggint-table-page [tables]="[0,1]" [page]="'04'"></iggint-table-page>
+    <iggint-table-page [tables]="[2]" [page]="'05'"></iggint-table-page>
+    <iggint-table-page [tables]="[3]" [page]="'06'"></iggint-table-page>
+    <iggint-table-page [tables]="[4]" [page]="'07'"></iggint-table-page>
+    <iggint-table-page [tables]="[5,6]" [page]="'08'"></iggint-table-page>
+    <iggint-table-page [tables]="[7]" [page]="'09'"></iggint-table-page>
+    <iggint-table-page [tables]="[8]" [page]="'10'"></iggint-table-page>
+    <iggint-table-page [tables]="[9]" [page]="'12'"></iggint-table-page>
+    <iggint-table-page [tables]="[10]" [page]="'13'" [last]="true" [customer]="customer" ></iggint-table-page>
+    <iggint-result-page [page]="'14'"></iggint-result-page>
+    <iggint-result-page-2 [page]="'15'"></iggint-result-page-2>
+}
+
+@if(fileType === fileTypeEnum.IGGINT && customer?.type == 1) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <iggint-intro-page [page]="'03'"></iggint-intro-page>
+    <iggint-table-page [tables]="[0,1]" [page]="'04'"></iggint-table-page>
+    <iggint-table-page [tables]="[2,3]" [page]="'05'"></iggint-table-page>
+    <iggint-table-page [tables]="[4,5]" [page]="'06'"></iggint-table-page>
+    <iggint-table-page [tables]="[6,7]" [page]="'07'"></iggint-table-page>
+    <iggint-table-page [tables]="[8,9]" [page]="'08'" ></iggint-table-page>
+    <iggint-table-page [tables]="[10]" [page]="'09'" [last]="true" [customer]="customer" ></iggint-table-page>
+    <iggint-result-page [page]="'10'"></iggint-result-page>
+    <iggint-result-page-2 [page]="'11'"></iggint-result-page-2>
 }
 
 
-@if(fileType === fileTypeEnum.UROGEN && tenant == 'valsambro') {
+@if(fileType === fileTypeEnum.UROGEN && tenant == 'valsambro' && customer?.type == 1) {
     <presentation-page></presentation-page>
-    <index-page [customer]="customer" ></index-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <urogen-introduction-page [page]="'03'"></urogen-introduction-page>
+     <metabolomics-image-page [customer]="customer" [title]="'Implicazioni sistemiche del Tratto Urogenitale'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/implicazioni_sistemiche_urogen_' + tenant + '.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <urogen-table-page [pageId]="0" [page]="'05'"></urogen-table-page>
+    <urogen-table-page [pageId]="1" [page]="'06'"></urogen-table-page>
+    <urogen-table-page [pageId]="2" [page]="'07'"></urogen-table-page>
+    <urogen-table-page [pageId]="3" [page]="'08'"></urogen-table-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'09'">
+        <urogen-descriptions  [title]="'Flora Lattobacillare Vaginale'" [elements]="'1-4'"></urogen-descriptions>
+        <urogen-descriptions  [title]="'Candida'" [elements]="'5-11'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'10'">
+        <urogen-descriptions  [title]="'Patogeni sessuali (Infezioni a Trasmissione Sessuale IST)'" [elements]="'12-14'"></urogen-descriptions>
+        <urogen-descriptions  [title]="'Altri patogeni urogenitali'" [elements]="'15-27'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'11'">
+        <urogen-descriptions  [title]="'Altri patogeni urogenitali'" [elements]="'28-31'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <urogen-aroma-page [page]="'12'"></urogen-aroma-page>
+    <urogen-ending-page [page]="'13'"></urogen-ending-page>
+    <gutsys-indication-page [page]="'14'" [date]="customer?.refDate"></gutsys-indication-page>
+}
+
+@if(fileType === fileTypeEnum.UROGEN && tenant == 'valsambro' && customer?.type == 2) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
+    <urogen-introduction-page [page]="'03'"></urogen-introduction-page>
+     <metabolomics-image-page [customer]="customer" [title]="'Implicazioni sistemiche del Tratto Urogenitale'" [page]="'04'">
+        <img class="image-container" src="{{'assets/img/implicazioni_sistemiche_urogen_' + tenant + '.svg'}}" alt="" >
+    </metabolomics-image-page>
+    <urogen-table-page [pageId]="0" [page]="'05'"></urogen-table-page>
+    <urogen-table-page [pageId]="1" [page]="'06'"></urogen-table-page>
+    <urogen-table-page [pageId]="2" [page]="'07'"></urogen-table-page>
+    <urogen-table-page [pageId]="3" [page]="'08'"></urogen-table-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'09'">
+        <urogen-descriptions  [title]="'Flora Lattobacillare Vaginale'" [elements]="'1-4'"></urogen-descriptions>
+        <urogen-descriptions  [title]="'Candida'" [elements]="'5-11'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'10'">
+        <urogen-descriptions  [title]="'Patogeni sessuali (Infezioni a Trasmissione Sessuale IST)'" [elements]="'12-14'"></urogen-descriptions>
+        <urogen-descriptions  [title]="'Altri patogeni urogenitali'" [elements]="'15-27'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'11'">
+        <urogen-descriptions  [title]="'Altri patogeni urogenitali'" [elements]="'28-31'"></urogen-descriptions>
+    </metabolomics-image-page>
+    <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
+}
+
+@if(fileType === fileTypeEnum.UROGEN && tenant == 'homica' && customer?.type == 1) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
     <urogen-introduction-page [page]="'03'"></urogen-introduction-page>
      <metabolomics-image-page [customer]="customer" [title]="'Implicazioni sistemiche del Tratto Urogenitale'" [page]="'04'">
         <img class="image-container" src="{{'assets/img/implicazioni_sistemiche_urogen_' + tenant + '.svg'}}" alt="" >
@@ -177,9 +297,9 @@
     <gutsys-indication-page [page]="'14'" [date]="customer?.refDate"></gutsys-indication-page>
 }
 
-@if(fileType === fileTypeEnum.UROGEN && tenant == 'homica') {
+@if(fileType === fileTypeEnum.UROGEN && tenant == 'homica' && customer?.type == 2) {
     <presentation-page></presentation-page>
-    <index-page [customer]="customer" ></index-page>
+    <index-page [customer]="customer" [type]="customer?.type"></index-page>
     <urogen-introduction-page [page]="'03'"></urogen-introduction-page>
      <metabolomics-image-page [customer]="customer" [title]="'Implicazioni sistemiche del Tratto Urogenitale'" [page]="'04'">
         <img class="image-container" src="{{'assets/img/implicazioni_sistemiche_urogen_' + tenant + '.svg'}}" alt="" >
@@ -199,14 +319,7 @@
         <metabolomics-image-page [customer]="customer" [title]="'Guida ai microrganismi analizzati'" [page]="'11'">
         <urogen-descriptions  [title]="'Altri patogeni urogenitali'" [elements]="'28-31'"></urogen-descriptions>
     </metabolomics-image-page>
-    @if(customer?.type == 1){
-        <urogen-aroma-page [page]="'12'"></urogen-aroma-page>
-        <urogen-ending-page [page]="'13'"></urogen-ending-page>
-        <gutsys-indication-page [page]="'14'" [date]="customer?.refDate"></gutsys-indication-page>
-    }@else if(customer?.type == 2){
-        <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
-    }
-
+    <gutsys-indication-page [page]="'12'" [date]="customer?.refDate"></gutsys-indication-page>
 }
 
 @if(fileType === fileTypeEnum.INTLUC ) {

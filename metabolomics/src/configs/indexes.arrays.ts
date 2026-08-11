@@ -675,16 +675,6 @@ export const UROGEN_INDEXES_ARRAY_2 = [
       },
     ],
   },
-  {
-    sectionTitle: 'pdfpages.indexpage.urogen.subtitle3',
-    page: '12',
-    indexes: [
-      {
-        title: 'pdfpages.indexpage.urogen.index10',
-        page: '12',
-      },
-    ],
-  },
 ];
 
 export const INTLUC_INDEXES_ARRAY = [

@@ -1,7 +1,7 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ApplicationRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FileReaderService } from '../../services/file-reader.service';
 import { PdfService } from '../../services/file-export.service';
-import { firstValueFrom, Subscription, take } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {
   TranslateModule,
   TranslatePipe,
@@ -61,7 +61,7 @@ export class FileManagerComponent implements OnDestroy {
     private tenantService: TenantService,
     private fileTypeService: FileTypeService,
     private toastService: ToastService,
-    private zone: NgZone,
+    private appRef: ApplicationRef,
     private translateService: TranslateService,
   ) {}
 
@@ -134,7 +134,7 @@ export class FileManagerComponent implements OnDestroy {
         this.setOutputFileName();
         let customer = this.customersDataService.getCustomer();
         this.setLang(customer);
-        await firstValueFrom(this.zone.onStable);
+        this.appRef.tick();
         const filePath = await this.pdfService.exportElementById(
           'pdf-section',
           this.outputFileName,
