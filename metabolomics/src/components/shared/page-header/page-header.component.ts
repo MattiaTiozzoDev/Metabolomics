@@ -28,8 +28,8 @@ export class PageHeader implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tenant = this.tenantService.tenant;
     this.customerService.$customerData.subscribe((data) => {
+      this.tenant = this.tenantService.tenant;
       this.customer = data.customer;
       this.name = data.customer?.name
         ? data.customer.name.split(' ')[1]

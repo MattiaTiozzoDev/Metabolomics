@@ -29,9 +29,9 @@ export class PresentationPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tenant = this.tenantService.tenant;
-    this.fileType = this.fileTypeService.fileType;
     this.customersDataService.$customerData.subscribe((data) => {
+      this.tenant = this.tenantService.tenant;
+      this.fileType = this.fileTypeService.fileType;
       if (data) {
         this.name = data.customer.name;
         if (this.fileType === FileType.IGGINT) {

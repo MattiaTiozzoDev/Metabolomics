@@ -1,0 +1,51 @@
+export const AMMINO_TABLES = [
+  {
+    groupId: 0,
+    pageId: 0,
+    sectionTitle: 'Amminoacidi essenziali',
+    title: 'Amminoacidi essenziali',
+    metaIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  },
+  {
+    groupId: 1,
+    pageId: 1,
+    sectionTitle: 'Amminoacidi non essenziali',
+    title: 'Amminoacidi non essenziali',
+    metaIds: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+  },
+  {
+    groupId: 2,
+    pageId: 1,
+    sectionTitle: 'Marcatori di vitamina B',
+    title: 'Marcatori di vitamina B',
+    metaIds: [22, 20, 16, 18, 11, 1],
+  },
+  {
+    groupId: 3,
+    pageId: 2,
+    sectionTitle: 'Marcatori gastrointestinali',
+    title: 'Marcatori gastrointestinali',
+    metaIds: [3, 8, 9, 11],
+  },
+  {
+    groupId: 4,
+    pageId: 2,
+    sectionTitle: 'Marcatori di detossificazione',
+    title: 'Marcatori di detossificazione',
+    metaIds: [1, 9, 15, 18, 13, 17],
+  },
+  {
+    groupId: 5,
+    pageId: 3,
+    sectionTitle: 'Amminoacidi legati a neurotrasmissione',
+    title: 'Amminoacidi legati a neurotrasmissione',
+    metaIds: [23, 7, 19, 8, 9, 3, 13, 15, 12, 20],
+  },
+  {
+    groupId: 6,
+    pageId: 4,
+    sectionTitle: 'Amminoacidi legati al ciclo dell’urea',
+    title: 'Amminoacidi legati al ciclo dell’urea',
+    metaIds: [13, 10, 14, 15, 16, 24, 25, 26, 12, 20],
+  },
+];

@@ -711,3 +711,64 @@ export const INTLUC_INDEXES_ARRAY = [
     ],
   },
 ];
+
+export const AMMINO_INDEXES_ARRAY = [
+  {
+    sectionTitle: 'pdfpages.indexpage.ammino.subtitle1',
+    page: '03',
+    indexes: [
+      {
+        title: 'pdfpages.indexpage.ammino.index1',
+        page: '03',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'pdfpages.indexpage.ammino.subtitle2',
+    page: '04',
+    indexes: [
+      {
+        title: 'pdfpages.indexpage.ammino.index2',
+        page: '04',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index3',
+        page: '05',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index4',
+        page: '05',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index5',
+        page: '06',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index6',
+        page: '06',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index7',
+        page: '07',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index8',
+        page: '08',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'pdfpages.indexpage.ammino.subtitle3',
+    page: '09',
+    indexes: [
+      {
+        title: 'pdfpages.indexpage.ammino.index9',
+        page: '09',
+      },
+      {
+        title: 'pdfpages.indexpage.ammino.index10',
+        page: '10',
+      },
+    ],
+  },
+];

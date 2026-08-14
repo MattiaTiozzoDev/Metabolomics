@@ -28,6 +28,7 @@ export class ExplanationPageComponent implements OnChanges, OnInit {
   public explanations: any = [];
   public pages: any = [];
   public fileType: FileType;
+  public FileTypeEnum = FileType;
 
   @Input() page: string;
   @Input() profile: any;
@@ -41,11 +42,11 @@ export class ExplanationPageComponent implements OnChanges, OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tenant = this.tenantService.tenant;
     this.fileType = this.fileTypeService.fileType;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.tenant = this.tenantService.tenant;
     if (changes['profile'] && changes['profile'].currentValue) {
       this.fileType = this.fileTypeService.fileType;
       this.setExplanations(changes['profile'].currentValue);

@@ -333,4 +333,17 @@
     <intluc-ending-page-3  [page]="'07'" ></intluc-ending-page-3>
 }
 
+@if(fileType === fileTypeEnum.AMMINO ) {
+    <presentation-page></presentation-page>
+    <index-page [customer]="customer" ></index-page>
+    <ammino-intro-page [page]="'03'"></ammino-intro-page>
+    <ammino-table-page [pageId]="0" [customer]="customer" [page]="'04'"></ammino-table-page>
+    <ammino-table-page [pageId]="1" [customer]="customer" [page]="'05'"></ammino-table-page>
+    <ammino-table-page [pageId]="2" [customer]="customer" [page]="'06'"></ammino-table-page>
+    <ammino-table-page [pageId]="3" [customer]="customer" [page]="'07'"></ammino-table-page>
+    <ammino-table-page [pageId]="4" [customer]="customer" [page]="'08'"></ammino-table-page>
+    <ammino-profile-page [profile]="profile" [customer]="customer" [page]="'09'"></ammino-profile-page>
+    <metabolomics-explanation-page [profile]="profile" [customer]="customer" [basicIndex]="10"></metabolomics-explanation-page>
+}
+
 </div>

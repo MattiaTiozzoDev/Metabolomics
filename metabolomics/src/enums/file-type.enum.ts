@@ -6,4 +6,5 @@ export enum FileType {
   IGGINT = 'IGGINT',
   UROGEN = 'UROGEN',
   INTLUC = 'INTLUC',
+  AMMINO = 'AMMINO',
 }

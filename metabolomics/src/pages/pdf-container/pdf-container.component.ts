@@ -44,6 +44,10 @@ import { IntlucTablePage2 } from '../../components/pdf-pages/intluc-table-page-2
 import { IntlucEndingPage1 } from '../../components/pdf-pages/intluc-ending-page-1/intluc-ending-page-1';
 import { IntlucEndingPage2 } from '../../components/pdf-pages/intluc-ending-page-2/intluc-ending-page-2';
 import { IntlucEndingPage3 } from '../../components/pdf-pages/intluc-ending-page-3/intluc-ending-page-3';
+import { AmminoIntroPage } from '../../components/pdf-pages/ammino-intro-page/ammino-intro-page';
+import { AmminoTablePage } from '../../components/pdf-pages/ammino-table-page/ammino-table-page';
+import { AmminoProfilePage } from '../../components/pdf-pages/ammino-profile-page/ammino-profile-page';
+import { AMMINO_ELEMENTS_EXP } from '../../configs/ammino-explanations';
 
 @Component({
   selector: 'metabolomics-pdf-container',
@@ -84,6 +88,9 @@ import { IntlucEndingPage3 } from '../../components/pdf-pages/intluc-ending-page
     IntlucEndingPage1,
     IntlucEndingPage2,
     IntlucEndingPage3,
+    AmminoIntroPage,
+    AmminoTablePage,
+    AmminoProfilePage,
   ],
   templateUrl: './pdf-container.component.html',
   styleUrl: './pdf-container.component.scss',
@@ -118,10 +125,19 @@ export class PdfContainerComponent implements OnInit {
       explanations: this.staticDataService.loadExplanations(),
       example: this.staticDataService.loadIntlucExample(),
     }).subscribe(({ example }) => {
-      this.explanations =
-        this.fileType === FileType.METABO
-          ? METABO_ELEMENTS_EXP
-          : VLSCFA_ELEMENTS_EXP;
+      switch (this.fileType) {
+        case FileType.METABO:
+          this.explanations = METABO_ELEMENTS_EXP;
+          break;
+        case FileType.VLSCFA:
+          this.explanations = VLSCFA_ELEMENTS_EXP;
+          break;
+        case FileType.AMMINO:
+          this.explanations = AMMINO_ELEMENTS_EXP;
+          break;
+        default:
+          this.explanations = METABO_ELEMENTS_EXP;
+      }
       this.customersDataService.setData(example);
     });
 
@@ -129,15 +145,26 @@ export class PdfContainerComponent implements OnInit {
       this.fileType = null;
       this.tenant = this.tenantService.tenant ?? 'valsambro';
       this.fileType = this.fileTypeService.fileType;
-      this.explanations =
-        this.fileType === FileType.METABO
-          ? METABO_ELEMENTS_EXP
-          : VLSCFA_ELEMENTS_EXP;
+      switch (this.fileType) {
+        case FileType.METABO:
+          this.explanations = METABO_ELEMENTS_EXP;
+          break;
+        case FileType.VLSCFA:
+          this.explanations = VLSCFA_ELEMENTS_EXP;
+          break;
+        case FileType.AMMINO:
+          this.explanations = AMMINO_ELEMENTS_EXP;
+          break;
+        default:
+          this.explanations = METABO_ELEMENTS_EXP;
+      }
       this.customer = { ...data?.customer };
       this.lang = this.customer.available === 1 ? '_en' : '';
       if (
         this.explanations &&
-        (this.fileType === FileType.METABO || this.fileType === FileType.VLSCFA)
+        (this.fileType === FileType.METABO ||
+          this.fileType === FileType.VLSCFA ||
+          this.fileType === FileType.AMMINO)
       ) {
         this.setProfile(data.values);
       }
@@ -147,10 +174,20 @@ export class PdfContainerComponent implements OnInit {
   private setProfile(values) {
     let hight = [];
     let low = [];
-    let profile =
-      this.fileType === FileType.METABO
-        ? this.customersDataService.getProfileMetabolites(values)
-        : this.customersDataService.getProfilevlscfa(values);
+    let profile = { hight: [], low: [] };
+    switch (this.fileType) {
+      case FileType.METABO:
+        profile = this.customersDataService.getProfileMetabolites(values);
+        break;
+      case FileType.VLSCFA:
+        profile = this.customersDataService.getProfilevlscfa(values);
+        break;
+      case FileType.AMMINO:
+        profile = this.customersDataService.getProfileMetabolites(values);
+        break;
+      default:
+        profile = this.customersDataService.getProfileMetabolites(values);
+    }
     profile.hight.forEach((h) => {
       var explanation = this.explanations.find(
         (e) => Number(e.id) === Number(h),

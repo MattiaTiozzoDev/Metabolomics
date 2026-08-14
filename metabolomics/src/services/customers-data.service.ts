@@ -12,6 +12,8 @@ import { IGGINT_TABLES } from '../configs/iggint-tables';
 import { UROGEN_DESC, UROGEN_NAMES } from '../configs/urogen-names';
 import { INTLUC_NAMES } from '../configs/intluc-names';
 import { INTLUC_LIMITS } from '../configs/intluc-limits';
+import { AMMINO_NAMES } from '../configs/ammino-names';
+import { AMMINO_LIMITS } from '../configs/ammino-limits';
 
 const CUSTOMER_COLUMNS = [
   'DATA_ACCETTAZIONE',
@@ -86,6 +88,10 @@ export class CustomersDataService {
     } else if (fileType === 'INTLUC') {
       this.customersData = filteredData.map((element: any) =>
         this.mapIntlucData(element),
+      );
+    } else if (fileType === 'AMMINO') {
+      this.customersData = filteredData.map((element: any) =>
+        this.mapAmminoData(element),
       );
     }
     this.customerDataSubject.next(this.customersData[this.customerIndex]);
@@ -396,6 +402,41 @@ export class CustomersDataService {
           name: INTLUC_NAMES[key] ? INTLUC_NAMES[key] : '',
           sup: INTLUC_LIMITS[key]?.sup,
           inf: 0,
+        });
+      }
+    });
+    return values;
+  }
+
+  mapAmminoData(data): CustomerData {
+    return {
+      customer: {
+        accDate: data['DATA_ACCETTAZIONE'],
+        orderId: data['CODICE_ORDINE'],
+        fiscalCode: data['CODICE_FISCALE'],
+        type: Number(data['VARIABILE_POPOLAZIONE']),
+        available: data['DISPONIBILE'],
+        name: data['NOME'],
+        accNumber: data['NUMERO_ACCETTAZIONE'],
+        refDate: data['DATA_REFERTAZIONE'],
+      },
+      values: this.mapAmminoValues(data),
+    };
+  }
+
+  private mapAmminoValues(data) {
+    let values = [];
+    Object.keys(data).forEach((key) => {
+      if (!CUSTOMER_COLUMNS.includes(key)) {
+        if (key == 'VARIABILE_POPOLAZIONE') data[key] = Number(data[key]);
+        values.push({
+          id: key,
+          value: data[key],
+          name: AMMINO_NAMES[key] ? AMMINO_NAMES[key] : '',
+          yellInf: AMMINO_LIMITS[key]?.yellInf,
+          grInf: AMMINO_LIMITS[key]?.grInf,
+          grSup: AMMINO_LIMITS[key]?.grSup,
+          yellSup: AMMINO_LIMITS[key]?.yellSup,
         });
       }
     });

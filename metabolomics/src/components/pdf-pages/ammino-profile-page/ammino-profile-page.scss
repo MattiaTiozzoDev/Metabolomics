@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    width: 595px;
+    height: 842px;
+}
+
+.hide{
+    display: none;
+}
+
+.section-header{
+    width: 595px !important;
+    height: 30px;
+    margin-left: -40px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--brand-color, #29AABC) 52.88%);
+}
+
+:host-context(.homica) .section-header{
+    background: linear-gradient(90deg, #6B4C99 0%, #141428 90%);
+    color: white !important;
+}
+
+:host-context(.homica) h2 {
+    color: #141428;
+}
+
+h4 {
+    color: var(--brand-color, #29AABC) !important;
+}
+
+:host-context(.homica) h4 {
+    color: #6B4C99 ;
+}
+
+h5{
+    font-size: 8px;
+    font-weight: 400;
+    color: #383838;
+}
+
+.small-text{
+    font-size:9px;
+    color: #333333;
+    margin-bottom: 0 !important;
+    font-weight: bold;
+}
+
+.mini-text{
+    font-size:7px;
+}
+
+h6{
+    color: #383838;
+}
+
+h6.white{
+    color: white;
+}
+
+.table-header{
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    background: var(--brand-color, #29AABC);
+}
+
+:host-context(.homica) .table-header{
+    background: #6B4C99;
+}
+
+.metabolites-table{
+    width: 250px;
+    height: 365px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background: #024F8433;
+}
+
+.metabolites-table.long{
+    height: 500px;
+}
+
+:host-context(.homica) .metabolites-table{
+   background: #6B4C9933;
+}
+
+.white{
+    color: white !important;
+}
+
+
+

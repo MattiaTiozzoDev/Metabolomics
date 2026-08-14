@@ -1,6 +1,6 @@
 export const EXCELL_TYPE = ['xlsx', 'xlsm', 'xls', 'csv'];
 
-export const HOMICA_FILENAME = ['HO_METABO', 'HO_UROGEN'];
+export const HOMICA_FILENAME = ['HO_METABO', 'HO_UROGEN', 'HO_AMMINO'];
 
 export const VALSAMBRO_FILENAME = [
   'METABO',
@@ -10,6 +10,7 @@ export const VALSAMBRO_FILENAME = [
   'IGGINT',
   'UROGEN',
   'INTLUC',
+  'AMMINO',
 ];
 
 export const REPORTS = {
@@ -52,5 +53,10 @@ export const REPORTS = {
     title: 'pdfpages.presentation.INTLUC',
     subtitle: 'pdfpages.presentation.INTLUC_SUBTITLE',
     color: '#5C9FCF',
+  },
+  AMMINO: {
+    title: 'pdfpages.presentation.AMMINO',
+    subtitle: 'pdfpages.presentation.AMMINO_SUBTITLE',
+    color: '#EA7A04',
   },
 };

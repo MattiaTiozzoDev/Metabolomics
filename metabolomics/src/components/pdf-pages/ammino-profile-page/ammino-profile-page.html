@@ -1,0 +1,39 @@
+<div class="page-container">
+    <metabolomics-page-header ></metabolomics-page-header>
+    <div class="page-content">
+        <h2 class="mt-10px dark-blue">Profilo Amminoacidico</h2>
+        <h4 class="mt-5px light-blue">Effetti sistemici, epigenetici e ottimizzazione nutrizionale</h4>       
+        <div class="section-header flex justify-end align-center mt-20px px-40px" [ngClass]="{'hide': hideHeaders}">
+            <h4 class="white">Introduzione sul profilo Amminoacidico</h4>
+        </div>
+        <div class="flex align-center mt-20px">
+           <h5>L’analisi degli amminoacidi misura gli amminoacidi essenziali e non essenziali, i metaboliti intermedi coinvolti nel metabolismo delle proteine e i marcatori correlati ai peptidi alimentari.  Gli amminoacidi sono elementi costitutivi importanti per ogni cellula e per il corpo umano e richiedono specifici nutrienti per il loro metabolismo e utilizzo, evidenziando indirettamente delle situazioni di carenze alimentari o squilibri gastrointestinali. Inoltre svolgono un ruolo fondamentale come neurotrasmettitori, nel metabolismo di carboidrati e nei processi infiammatori e di detossificazione. </h5>
+        </div>
+        <div class="section-header flex justify-end align-center mt-20px px-40px" [ngClass]="{'hide': hideHeaders}">
+            <h4 class="white">{{"pdfpages.profilepage.sectiontitle2" | translate}}</h4>
+        </div>
+        <div class="flex justify-between mt-20px">
+            <div class="metabolites-table flex col align-center" [ngClass]="{'long': hideHeaders }">
+                <div class="table-header flex justify-center align-center mb-20px">
+                    <h6 class="white bold">{{"pdfpages.profilepage.hight" | translate}}</h6>
+                </div>
+                @for(hight of profile?.hight; track hight.id){
+                    <h6 class="bold mb-5px" [ngClass]="{'small-text mb-2px': smallText, 'mini-text': hideHeaders }">
+                        {{hight.id}}. {{hight.name |translate }}
+                    </h6>
+                }
+            </div>
+            <div class="metabolites-table flex col align-center" [ngClass]="{'long': hideHeaders}">
+                <div class="table-header flex justify-center align-center mb-20px">
+                    <h6 class="white bold">{{"pdfpages.profilepage.low" | translate}}</h6>
+                </div>
+                @for(low of profile?.low; track low.id){
+                    <h6 class="bold mb-5px" [ngClass]="{'small-text': smallText, 'mini-text': hideHeaders  }">
+                        {{low.id}}. {{low.name |translate }}
+                    </h6>
+                }
+            </div>
+        </div>
+    </div>
+    <metabolomics-page-footer [page]="page"></metabolomics-page-footer>
+</div>

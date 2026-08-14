@@ -75,4 +75,12 @@ export class StaticDataService {
       }),
     );
   }
+
+  loadAmminoExample(): Observable<any[]> {
+    return this.http.get<any[]>('assets/jsons/ammino.example.json').pipe(
+      tap((data) => {
+        this.example = data;
+      }),
+    );
+  }
 }

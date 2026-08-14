@@ -16,7 +16,9 @@
         }
         @if(element.type == 'metabolite'){
                 <div class="flex align-center">
-                    <div class="circle row-id mr-5px">{{element.id}}</div>
+                    @if(fileType != FileTypeEnum.AMMINO){
+                        <div class="circle row-id mr-5px">{{element.id}}</div>
+                    }
                     <h4 class="py-15px">
                         {{element.name | translate}}
                     </h4>

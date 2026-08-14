@@ -29,6 +29,7 @@ import {
   GUTSYS_INDEXES_ARRAY_6,
   UROGEN_INDEXES_ARRAY_1,
   UROGEN_INDEXES_ARRAY_2,
+  AMMINO_INDEXES_ARRAY,
 } from '../../../configs/indexes.arrays';
 
 @Component({
@@ -66,10 +67,14 @@ export class IndexPageComponent implements OnInit, OnChanges {
       case FileType.INTLUC:
         this.indexesArray = INTLUC_INDEXES_ARRAY;
         break;
+      case FileType.AMMINO:
+        this.indexesArray = AMMINO_INDEXES_ARRAY;
+        break;
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.tenant = this.tenantService.tenant;
     if (
       changes['type'] &&
       changes['type'].currentValue &&

@@ -1,0 +1,103 @@
+:host {
+    display: block;
+}
+
+.group-title {
+    color: var(--brand-color, #29AABC) !important;
+}
+
+:host-context(.homica) .group-title {
+    color: #6B4C99 !important;
+}
+
+.table-header{
+    height: 30px;
+    border-radius: 15px;
+    background-color: var(--brand-color, #29AABC);
+}
+
+:host-context(.homica) .table-header{
+    background-color: #6B4C99;
+}
+
+.note-container{
+    height: 10px;
+    background-color: var(--brand-color, #29AABC);
+}
+
+:host-context(.homica) .note-container{
+    background-color: #6B4C99;
+}
+
+.note{
+    font-size: 7px;
+}
+
+.w-14{
+    width: 14%;
+}
+
+.red{
+    color: #E62138 !important;
+}
+
+.small{
+    font-size: 5px;
+}
+
+.circle{
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
+    background-color: #6B4C99;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+:host-context(.homica) .circle{
+    background-color: #6B4C99;
+}
+
+.row-id{
+    background-color: var(--brand-color, #29AABC);
+}
+
+:host-context(.homica) .row-id{
+    background-color: #6B4C99;
+}
+
+.red-circle{
+     background-color: #E62138;
+}
+
+.table-header h5{
+    font-size: 8px;
+}
+
+.table-body h5 {
+    font-size: 7px;
+    color: #383838
+}
+
+.text-center {
+    text-align: center;
+}
+
+.table-body h5.white {
+    font-size: 7px;
+    color: white
+}
+
+hr{
+    height: 0.5px;
+    background: #29abbc83;
+    margin: 1px 0;
+    border: none;
+}
+
+:host-context(.homica) hr{
+    background: #6B4C99;
+}

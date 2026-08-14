@@ -1,0 +1,38 @@
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { PageHeader } from '../../shared/page-header/page-header.component';
+import { PageFooter } from '../../shared/page-footer/page-footer';
+import { TranslatePipe } from '@ngx-translate/core';
+import { NgClass } from '@angular/common';
+
+@Component({
+  selector: 'ammino-profile-page',
+  imports: [PageHeader, PageFooter, TranslatePipe, NgClass],
+  templateUrl: './ammino-profile-page.html',
+  styleUrl: './ammino-profile-page.scss',
+})
+export class AmminoProfilePage {
+  public smallText = false;
+  public hideHeaders = false;
+  @Input() profile: any;
+  @Input() customer: any;
+  @Input() page: string;
+  @Input() reportType: any;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (
+      !!changes &&
+      !!changes['profile'] &&
+      !!changes['profile'].currentValue
+    ) {
+      this.smallText =
+        changes['profile'].currentValue.low.length > 17 ||
+        changes['profile'].currentValue.hight.length > 17;
+
+      this.hideHeaders =
+        changes['profile'].currentValue.low.length > 33 ||
+        changes['profile'].currentValue.hight.length > 33;
+    }
+  }
+
+  ngOnInit(): void {}
+}
