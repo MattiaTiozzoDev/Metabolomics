@@ -394,12 +394,11 @@ export class CustomersDataService {
   private mapIntlucValues(data) {
     let values = [];
     Object.keys(data).forEach((key) => {
-      if (!CUSTOMER_COLUMNS.includes(key)) {
-        if (key == 'VARIABILE_POPOLAZIONE') data[key] = Number(data[key]);
+      if (!CUSTOMER_COLUMNS.includes(key) && INTLUC_NAMES[key]) {
         values.push({
           id: key,
           value: data[key],
-          name: INTLUC_NAMES[key] ? INTLUC_NAMES[key] : '',
+          name: INTLUC_NAMES[key],
           sup: INTLUC_LIMITS[key]?.sup,
           inf: 0,
         });
